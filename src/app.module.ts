@@ -17,10 +17,9 @@ import { ConfigModule } from '@nestjs/config';
       database: process.env.POSTGRES_DATABASE,
       entities: [],
       synchronize: false,
-      ssl:
-        process.env.NODE_ENV === 'development'
-          ? { rejectUnauthorized: false }
-          : true,
+      ...(process.env.NODE_ENV === 'development' && {
+        ssl: { rejectUnauthorized: false },
+      }),
     }),
     HealthModule,
   ],
