@@ -17,7 +17,6 @@ import { TerminusModule } from '@nestjs/terminus';
       entities: [],
       synchronize: false,
     }),
-    TerminusModule,
     HealthModule,
   ],
   controllers: [AppController],
